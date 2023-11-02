@@ -1,0 +1,69 @@
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+parser code {:
+
+	ArrayList<String> listaEquipos = new ArrayList<String>();
+
+	private void nuevoEquipo(String equipo){
+		if (listaEquipos.contains(equipo)){
+			System.out.println("Aviso: equipo " + equipo + "  repetido.");
+		}
+		else{
+			listaEquipos.add(equipo.trim());		
+		}
+	}
+	
+	private boolean equipoOK(String equipo){
+		if (!listaEquipos.contains(equipo.trim())){
+			System.out.println("Error: equipo " + equipo + " no definido.");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	private void procesarResultado(String local, Integer golesLocal, String visitante, Integer golesVisitante){
+		String ganador = "", perdedor = "";
+		boolean empate = false;
+		if (equipoOK(local) && equipoOK(visitante)){
+			if (golesLocal > golesVisitante){
+				ganador = local;
+				perdedor = visitante;
+			}
+			else if (golesLocal < golesVisitante){
+				ganador = visitante;
+				perdedor = local;
+			}
+			else {
+				empate = true;
+			}
+			if (empate){
+				System.out.println("El " + local + " y el " + visitante + " han empatado.");
+			}
+			else {
+				System.out.println("El " + ganador + " le ha ganado al " + perdedor + ".");
+			}
+		}	
+	}
+
+:};
+
+
+terminal INICIO_EQUIPOS, FIN_EQUIPOS, INICIO_RESULTADOS, FIN_RESULTADOS, SEPARADOR_GUION, SEPARADOR_PYC;
+terminal String NOMBRE_EQUIPO;
+terminal Integer GOLES;
+
+non terminal TEXTO, BLOQUE_EQUIPOS, BLOQUE_RESULTADOS, LISTA_EQUIPOS, LISTA_RESULTADOS;
+
+TEXTO ::= BLOQUE_EQUIPOS BLOQUE_RESULTADOS;
+BLOQUE_EQUIPOS ::= INICIO_EQUIPOS LISTA_EQUIPOS FIN_EQUIPOS;
+LISTA_EQUIPOS ::= NOMBRE_EQUIPO:equipo {: nuevoEquipo(equipo); :}  LISTA_EQUIPOS | NOMBRE_EQUIPO:equipo {: nuevoEquipo(equipo); :};
+
+BLOQUE_RESULTADOS ::= INICIO_RESULTADOS LISTA_RESULTADOS FIN_RESULTADOS;
+LISTA_RESULTADOS ::= NOMBRE_EQUIPO:local SEPARADOR_GUION GOLES:golesLocal SEPARADOR_PYC
+		     NOMBRE_EQUIPO:visitante SEPARADOR_GUION GOLES:golesVisitante LISTA_RESULTADOS {: procesarResultado (local, golesLocal, visitante, golesVisitante); :}|
+		
+		     NOMBRE_EQUIPO:local SEPARADOR_GUION GOLES:golesLocal SEPARADOR_PYC
+		     NOMBRE_EQUIPO:visitante SEPARADOR_GUION GOLES:golesVisitante{: procesarResultado (local, golesLocal, visitante, golesVisitante); :};

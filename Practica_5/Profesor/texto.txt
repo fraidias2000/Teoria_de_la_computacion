@@ -1,0 +1,11 @@
+=Equipos=
+SD_Huesca
+Real_Zaragoza
+CD_Teruel
+SD_Ejea
+=Fin_equipos=
+
+=Resultados=
+SD_Huesca - 2; Real_Zaragoza - 2
+CD_Teruel - 1; SD_Ejea - 0
+=Fin_resultados=
