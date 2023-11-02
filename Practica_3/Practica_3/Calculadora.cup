@@ -1,0 +1,22 @@
+/* ----------------------Seccion de declaraciones package e imports--------------------*/
+
+import java_cup.runtime.*;
+
+/* ------------Declaracion de la lista de simbolos de la gramatica-----------*/
+
+terminal Integer NUM;
+terminal MAS, MENOS, PYC, PARIZQ, PARDER, DIV, MULT;
+non terminal Integer EXPR;
+non terminal S, EXPR_PART;
+
+
+/* -------------Declaracion de precedencias -----------*/
+
+precedence left DIV,MULT,MAS, MENOS;
+
+
+/* --------------Declaracion de la gramatica -----------*/
+
+S ::= S EXPR_PART | EXPR_PART;
+EXPR_PART ::= EXPR PYC ;
+EXPR ::= NUM | EXPR MAS EXPR | EXPR MENOS EXPR | PARIZQ EXPR PARDER |EXPR MULT EXPR|EXPR DIV EXPR;

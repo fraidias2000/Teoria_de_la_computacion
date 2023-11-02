@@ -1,0 +1,10 @@
+
+COMPILAR PRINCIPAL.JAVA:
+javac -cp .;java-cup-11b.jar Principal.java
+
+LANZAR JAVA
+java -cp .;java-cup-11b.jar Principal prueba.txt
+
+COMPILAR .CUP
+C:\Users\aculplay\Desktop\INGENIERIA_INFORMATICA\2\TEORIA_DE_LA_COMPUTACION\PRACTICA\practica_3\practica_3\java-cup-11b.jar Calculadora.cup
+
