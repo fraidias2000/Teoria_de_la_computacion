@@ -1,0 +1,12 @@
+
+Yo he declarado 10 tokens que son los siguientes:
+1º Un token que he declarado con el nombre "tipo nombre" que engloba todas aquellas palabras que empiecen por mayúscula y luego sea una clausura de cualquier letra mayúscula o minúscula.
+2º Un token que he declarado con el nombre "tipo número de teléfono" que engloba todos aquellos símbolos que empiecen con un "+" seguido de cualquier combinación de números.
+3º Un token que he declarado con el nombre "tipo cifra" que a diferencia de "número de teléfono" este engloba los símbolos que sean una clausura desde el 1 al 9.
+4º Un token que he declarado con el nombre "tipo correo" que engloba todos los símbolos creados a través de una expresión regular en la cual aparece una clausura de todas las letras de abecedario seguido del símbolo "@" y seguido después por otra clausura de todas las letras del abecedario.
+5º Un token que he declarado con el nombre "tipo contraseña" que engloba todas las palabras alfanuméricas que están dentro del símbolo "&".
+6º Un token "[" que sirve para saber cuando empieza un campo dentro del fichero.
+7º Un token "]" que sirve para saber cuando finaliza un campo dentro del fichero.
+8º Un token ";" que sirve para separar distintos lexemas dentro del fichero.
+9º Un token "," que sirve también para separar distintos lexemas dentro del fichero.
+10º Los token "\n" "\t" "\s" "\r" que se usan para realizar saltos de línea dentro del fichero.
