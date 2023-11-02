@@ -1,0 +1,6 @@
+Cargos[Desarrollador Junior;Trafficker digital;Director de proyectos]
+Departamentos[Programación,8;Marketing,9;Negocio,3]
+Trabajadores[
+1;&Ah3fH1&;Carlos;Marco Pes;Desarrollador Junior;Programación;aleat@random.com;+34600000000
+2;&B4seee&;María;Utrera Domingo;Director de proyectos;Negocio;aleator@random.com;+34600000000
+]
